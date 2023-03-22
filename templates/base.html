@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lightbox.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flexslider.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.rateyo.css' %}" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/meanmenu.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inner-page-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main class="main-wrapper">
+
+        {% include 'includes/navbar.html' %}
+
+
+        {% block content %}
+
+
+        {% endblock content %}
+
+        {% include 'includes/footer.html' %}
+
+
+    </main>
+
+</body>
+
+</html>
