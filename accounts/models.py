@@ -77,8 +77,7 @@ class UserProfile(models.Model):
         User, on_delete=models.CASCADE, blank=True, null=True)
     profile_picture = models.ImageField(
         upload_to='users/profile_pictures', blank=True, null=True)
-    cover_photo = models.ImageField(
-        upload_to='users/cover_photos', blank=True, null=True)
+    dob = models.DateField()
     address = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=15, blank=True, null=True)
     state = models.CharField(max_length=15, blank=True, null=True)
