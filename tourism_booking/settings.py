@@ -71,6 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "tourism_booking.wsgi.application"
 
+AUTH_USER_MODEL = "accounts.User"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -129,6 +130,12 @@ STATICFILES_DIRS = ["tourism_booking/static"]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -140,5 +147,5 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "sagoresarker1@gmail.com"
-EMAIL_HOST_PASSWORD = "hemfldtlvsuxrsng"
+EMAIL_HOST_USER = "jannatulnayeem018@gmail.com"
+EMAIL_HOST_PASSWORD = "okznneikplgcbaol"

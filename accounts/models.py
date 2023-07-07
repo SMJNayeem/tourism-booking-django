@@ -78,7 +78,7 @@ class UserProfile(models.Model):
     profile_picture = models.ImageField(
         upload_to="users/profile_pictures", blank=True, null=True
     )
-    dob = models.DateField()
+    dob = models.DateField(blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=15, blank=True, null=True)
     state = models.CharField(max_length=15, blank=True, null=True)
