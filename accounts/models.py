@@ -1,14 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
 # Create your models here.
 
 
 class UserManager(BaseUserManager):
     def create_user(self, first_name, last_name, username, email, password=None):
         if not email:
-            raise ValueError('User must have an email address')
+            raise ValueError("User must have an email address")
         if not username:
-            raise ValueError('User must have an username')
+            raise ValueError("User must have an username")
 
         user = self.model(
             email=self.normalize_email(email),
@@ -57,8 +58,8 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
 
     objects = UserManager()
 
@@ -73,10 +74,10 @@ class User(AbstractBaseUser):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     profile_picture = models.ImageField(
-        upload_to='users/profile_pictures', blank=True, null=True)
+        upload_to="users/profile_pictures", blank=True, null=True
+    )
     dob = models.DateField()
     address = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=15, blank=True, null=True)

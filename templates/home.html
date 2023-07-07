@@ -4,4 +4,174 @@
 
 {% block content %}
 
+<!-- <div class="banner">
+    <div class="owl-four owl-carousel" itemprop="image">
+        <img src="{% static 'images/page-banner.jpg' %}" alt="Image of Bannner">
+        <img src="{% static 'images/page-banner2.jpg' %}" alt="Image of Bannner2">
+        <img src="{% static 'images/page-banner3.jpg' %}" alt="Image of Bannner3">
+    </div>
+    <div class="container" itemprop="description">
+        <h1>Welcome to Tours and Travels</h1>
+        <h3>Discover the world with us and let us turn your travel dreams into reality!!!</h3>
+    </div>
+    <div id="owl-four-nav" class="owl-nav"></div>
+</div> -->
+
+<!-- <style>
+    .carousel-inner {
+        position: relative;
+    }
+
+    .container {
+        position: absolute;
+        top: 27rem;
+        left: 7rem;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    .container h3 {
+        font-size: 21px;
+    }
+
+    .container h1 {
+        font-size: 40px;
+    }
+</style> -->
+<!-- <style>
+    .bottom-div {
+        position: absolute;
+        top: 300px;
+        left: 300px;
+        z-index: 222222;
+        color: white;
+
+    }
+</style> -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/page-banner2.jpg' %}" alt="First slide">
+            <div class="carousel-caption">
+                <h1 style="font-size: 40px;">Welcome to Tours and Travels</h1>
+                <h3 style="font-size: 20px;">Discover the world with us and let us turn your travel dreams into
+                    reality!!!</h3>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/page-banner.jpg' %}" alt="Second slide">
+            <div class="carousel-caption">
+                <h1>Welcome to Tours and Travels</h1>
+                <h3>Discover the world with us and let us turn your travel dreams into reality!!!</h3>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/page-banner3.jpg' %}" alt="Third slide">
+            <div class="carousel-caption">
+                <h1>Welcome to Tours and Travels</h1>
+                <h3>Discover the world with us and let us turn your travel dreams into reality!!!</h3>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <!-- <a class="left carousel-control" href="#carouselExampleIndicators" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a> -->
+    <!-- <div class="container bottom-div" itemprop="description">
+        <h1>Welcome to Tours and Travels</h1>
+        <h3>Discover the world with us and let us turn your travel dreams into reality!!!</h3>
+    </div> -->
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!-- <a class="right carousel-control" href="#carouselExampleIndicators" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a> -->
+</div>
+
+<div class="page-heading">
+    <div class="container">
+        <h2>popular courses</h2>
+    </div>
+</div>
+
+<div class="learn-courses">
+    <div class="container">
+        <div class="courses">
+            <div class="owl-one owl-carousel">
+                <div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+                    <div class="img-wrap" itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+                    <a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+                    <div class="box-body" itemprop="description">
+                        <p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem
+                            ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+                        <section itemprop="time">
+                            <p><span>Duration:</span> 4 Years</p>
+                            <p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+                            <p><span>Fee:</span> 4,00,000</p>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+                    <div class="img-wrap" itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+                    <a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+                    <div class="box-body" itemprop="description">
+                        <p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem
+                            ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+                        <section itemprop="time">
+                            <p><span>Duration:</span> 4 Years</p>
+                            <p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+                            <p><span>Fee:</span> 4,00,000</p>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+                    <div class="img-wrap" itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+                    <a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+                    <div class="box-body" itemprop="description">
+                        <p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem
+                            ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+                        <section itemprop="time">
+                            <p><span>Duration:</span> 4 Years</p>
+                            <p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+                            <p><span>Fee:</span> 4,00,000</p>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+                    <div class="img-wrap" itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+                    <a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+                    <div class="box-body" itemprop="description">
+                        <p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem
+                            ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+                        <section itemprop="time">
+                            <p><span>Duration:</span> 4 Years</p>
+                            <p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+                            <p><span>Fee:</span> 4,00,000</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
