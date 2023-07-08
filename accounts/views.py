@@ -53,13 +53,13 @@ def register(request):
 
             # User Activation
 
-            current_site = get_current_site(request)
+            # current_site = get_current_site(request)
             mail_subject = "Please activate your account. "
             message = render_to_string(
                 "accounts/account_verification_email.html",
                 {
                     "user": user,
-                    "domain": current_site,
+                    "domain": "http://127.0.0.1:8000",
                     "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                     "token": default_token_generator.make_token(user),
                 },
@@ -170,7 +170,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         messages.success(request, "Congratulations! Your account is activated.")
-        return redirect("loginUser")
+        return redirect("login")
     else:
         messages.error(request, "Invalid activation link")
         return redirect("register")
