@@ -10,9 +10,9 @@ from django.http import HttpResponse
 #     return render(request, "accounts/login.html")
 
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegistrationForm
-from .models import User
+from .models import User, UserProfile
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -39,7 +39,7 @@ def register(request):
             email = form.cleaned_data["email"]
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            username = email.split("@")[0]
+            # username = email.split("@")[0]
 
             user = User.objects.create_user(
                 first_name=first_name,
@@ -87,63 +87,15 @@ def loginUser(request):
         password = request.POST["password"]
 
         user = authenticate(email=email, password=password)
+        user.save()
 
         if user is not None:
             try:
+                login(request, user)
+                messages.success(request, "You are now logged in.")
                 return redirect("homePage")
-                # cart = Cart.objects.get(cart_id=_cart_id(request))
-                # is_cart_item_exist = CartItem.objects.filter(cart=cart).exists()
-                # if is_cart_item_exist:
-                #     cart_item = CartItem.objects.filter(cart=cart)
-
-                #     # Getting product variation by cart id
-                #     product_variation = []
-                #     for item in cart_item:
-                #         variation = item.variation.all()
-                #         product_variation.append(list(variation))
-
-                #     # Get the cart items from the user to access his product variation
-                #     cart_item = CartItem.objects.filter(user=user)
-                #     ex_var_list = []
-                #     id = []
-                #     for item in cart_item:
-                #         existing_variation  = item.variation.all()
-                #         ex_var_list.append(list(existing_variation))
-                #         id.append(item.id)
-
-                #     for pr in product_variation:
-                #         if pr in ex_var_list:
-                #             index = ex_var_list.index(pr)
-                #             item_id = id[index]
-
-                #             item = CartItem.objects.get(id=item_id)
-                #             item.quantity += 1
-                #             item.user = user
-                #             item.save()
-                #         else:
-                #             cart_item = CartItem.objects.filter(cart=cart)
-                #             for item in cart_item:
-                #                 item.user = user
-                #                 item.save()
-
             except:
-                pass
-
-            login(request, user)
-            messages.success(request, "You are now logged in.")
-
-            url = request.META.get("HTTP_REFERER")
-            try:
-                query = requests.utils.urlparse(url).query
-
-                # ?next=/cart/checkout/
-                params = dict(x.split("=") for x in query.split("&"))
-
-                if "next" in params:
-                    nextPage = params["next"]
-                return redirect(nextPage)
-            except:
-                return redirect("homePage")
+                messages.error(request, "Wrong Credentials")
         else:
             messages.error(request, "Invalid login credientials.")
             return redirect("login")
@@ -151,12 +103,12 @@ def loginUser(request):
     return render(request, "accounts/login.html")
 
 
-@login_required(login_url="loginUser")
+@login_required(login_url="login")
 def logoutUser(request):
     logout(request)
     messages.success(request, "You are logged out.")
 
-    return redirect("loginUser")
+    return redirect("login")
 
 
 def activate(request, uidb64, token):
@@ -207,7 +159,7 @@ def forgotPassword(request):
             messages.success(
                 request, "Password reset mail has been sent to your emaill address"
             )
-            return redirect("loginUser")
+            return redirect("login")
 
         else:
             messages.error(request, "Account does not exists. ")
@@ -250,3 +202,9 @@ def resetPassword(request):
             return redirect("resetPassword")
     else:
         return render(request, "accounts/resetPassword.html")
+
+
+# @login_required
+# def profileUpdate(request):
+#     profile = get_object_or_404(UserProfile, user=request.user)
+#     return redirect("profile", profile.user.username)

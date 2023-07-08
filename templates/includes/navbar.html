@@ -50,8 +50,15 @@
                         </ul>
                     </div>
                     <div class="login-block">
+                        {% if user.is_authenticated %}
+                        <a href="#"><span class="navicon">{{ user.username }}</span></a>
+                        <a href="{% url 'logout' %}"><span class="navicon">Logout</span></a>
+                        {% else %}
                         <a href="{% url 'login' %}">Login /</a>
                         <a href="{% url 'register' %}">Register</a>
+                        {% endif %}
+                        <!-- <a href="{% url 'login' %}">Login /</a>
+                        <a href="{% url 'register' %}">Register</a> -->
                     </div>
                 </div>
             </div>
