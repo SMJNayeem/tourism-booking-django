@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% for i in packages %}
+
+<div class="card" style="max-width: 50 rem;">
+    <br>
+    <p style="font-size: 1.8rem;">Package - {{forloop.counter}}</p>
+    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+    <!-- <img class="card-img-top" style="background: url(/{{ i.pkg_img }}) no-repeat;" alt="Card image cap"> -->
+    <div class="card-body">
+        {% if i.pkg_img %}
+        <img src=" {{ i.pkg_img.url }} " alt="">
+        {% endif %}
+        <br>
+        <h5 class="card-title" style="font-size: 1.8rem;">{{i.pkg_name}}</h5>
+        <p class="card-text" style="font-size: 1.8rem;">{{i.pkg_location}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="font-size: 1.8rem;">{{i.pkg_beg_date}}</li>
+        <li class="list-group-item" style="font-size: 1.8rem;">{{i.pkg_end_date}}</li>
+    </ul>
+    <div class="card-body">
+    </div>
+    <br>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}
